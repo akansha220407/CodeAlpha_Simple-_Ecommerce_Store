@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h1>Products</h1>
+{% for product in products %}
+<div class="product">
+    <h3><a href="{% url 'product_detail' product.pk %}">{{ product.name }}</a></h3>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p>{{ product.description|truncatewords:20 }}</p>
+    {% if user.is_authenticated %}
+        <a href="{% url 'add_to_cart' product.pk %}" class="add-to-cart">Add to Cart</a>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login to add to cart</a></p>
+    {% endif %}
+</div>
+{% empty %}
+<p>No products available.</p>
+{% endfor %}
+{% endblock %}
