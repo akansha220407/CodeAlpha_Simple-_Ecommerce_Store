@@ -1,0 +1,10 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div style="text-align: center; padding: 40px;">
+    <h1>🎉 Order Complete!</h1>
+    <p>Thank you for your purchase!</p>
+    <p>Your order has been processed successfully.</p>
+    <br>
+    <a href="{% url 'product_list' %}" class="add-to-cart">Continue Shopping</a>
+</div>
+{% endblock %}
